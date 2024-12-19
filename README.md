@@ -24,7 +24,7 @@ Webserver - Node Web application framework for routing - Express Build tool - We
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/Mohammad-Aljada/evaluate-a-news-article-with-nlp.git
+   git clone https://https://github.com/Mohammad-Aljada/Evaluate-a-News-Article-with-NLP.git
    ```
 
 2. **Navigate to the project directory**:
