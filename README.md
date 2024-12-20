@@ -1,18 +1,17 @@
-
 # Evaluate a News Article with Natural Language Processing ✈️🚈🚘
 
 ## Overview
 
-Theis Final project  **Evaluate a News Article with Natural Language Processing** In Udacity , this Web tool that allows users to run Natural Language Processing (NLP) on articles or blogs found on other websites.🙎‍♀️🙎‍♂️
+Theis Final project **Evaluate a News Article with Natural Language Processing** In Udacity , this Web tool that allows users to run Natural Language Processing (NLP) on articles or blogs found on other websites.🙎‍♀️🙎‍♂️
 
 Following are the project prerequisites:
 
-Webserver - Node Web application framework for routing - Express Build tool - Webpack. Using webpack, we will set up the app to have dev and prod environments, each with their own set of tools and commands. External script - Service Worker External API - Aylien API 
-
-
+Webserver - Node Web application framework for routing - Express Build tool - Webpack. Using webpack, we will set up the app to have dev and prod environments, each with their own set of tools and commands. External script - Service Worker External API - Aylien API
 
 ## Table of Contents
+
 -[Overview](#overview)
+
 - [Installation](#installation)
 - [Usage](#usage)
 - [APIs Used](#apis-used)
@@ -23,35 +22,45 @@ Webserver - Node Web application framework for routing - Express Build tool - We
 ## Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://https://github.com/Mohammad-Aljada/Evaluate-a-News-Article-with-NLP.git
    ```
 
 2. **Navigate to the project directory**:
+
    ```bash
    cd evaluate-a-news-article-with-nlp
    ```
 
 3. **Install dependencies**:
+
    ```bash
    npm install
    ```
-**Notice that Node.js version is v20.15.1**
+
+   **Notice that Node.js version is v20.15.1**
 
 4. **Set up environment variables**:
    Create a `.env` file in the root directory and add the following API keys:
 
    ```
-   API_ID=your_api_id 
+   API_ID=your_api_id
    API_KEY=your_api_key
+   Port=5000(optinal)
    ```
 
+   \*\*Note : Test And Server Run To Port 5000 or 3000 in Project if First Value Port in `.env` file
+   not Available take value seceond in index.js file in folder server.
+
 5. **Build the app for production**:
+
    ```bash
    npm run build
    ```
 
 6. **Start the server**:
+
    ```bash
    npm start
    ```
@@ -73,8 +82,7 @@ Once the server is running, open `http://localhost:3000` in your browser to acce
 
 The following APIs are used in this app:
 
-1. **[Aylien API ](https://aylien.com/product/news-api/)**: Used to NLP FOR Article blogs 
-
+1. **[Aylien API ](https://aylien.com/product/news-api/)**: Used to NLP FOR Article blogs
 
 ## Available Scripts
 
@@ -93,5 +101,5 @@ The following APIs are used in this app:
 - **Jest**: JavaScript testing framework.
 
 ## Author
-Mohammad Aljada
 
+Mohammad Aljada
