@@ -1,21 +1,18 @@
-import supertest from 'supertest';
-import {startServer} from '../src/server/index'; // Import the app instance
+import { CheckUrl } from '../src/client/js/CheckUrl';
 
-describe('Test: Server should be running', () => {
-  let server;
-  beforeAll(async () => {
-    // Start the server dynamically on port 3000 or fallback to port 5000
-    server = await startServer();
+describe('IS valid URL Or Not', () => {
+
+  test('have a valid URL with HTTP return true', () => {
+    const url = 'http://example.com';
+    expect(CheckUrl(url)).toBe(true);
   });
-
-  // Close the server after all tests
-  afterAll((done) => {
-    server.close(done);  // Ensure the server closes after tests
+  // Test for a valid URL with HTTPS protocol
+  test('have a valid URL with HTTPS return true', () => {
+    const url = 'https://example.com';
+    expect(CheckUrl(url)).toBe(true);
   });
-
-  it('should respond to GET / with status 200 and correct message', async () => {
-    const response = await supertest(server).get('/');
-    expect(response.status).toBe(200);
-    expect(response.text).toContain('Server is running');
-  }, 10000); // Increase the timeout if necessary
+  test('have a valid URL with srting return false', () => {
+    const url = 'example';
+    expect(CheckUrl(url)).toBe(false);
+  });
 });

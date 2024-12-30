@@ -4,7 +4,6 @@ import webpack from 'webpack';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { fileURLToPath } from 'url';
-import lib from 'babel-loader';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

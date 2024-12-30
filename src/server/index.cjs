@@ -59,37 +59,10 @@ app.get('/', (req, res) => {
   res.send('Server is running');
 });
 
-// Function to try to bind the server to a port
-const tryPort = (port) => {
-  return new Promise((resolve, reject) => {
-    const server = app.listen(port, () => {
-      console.log(`Server running on http://localhost:${port}`);
-      resolve(server);
-    }).on('error', reject);
-  });
-};
+// Designates what port the app will listen to for incoming requests
+port = 3000;
+app.listen(port, function () {
+  console.log(`Server listening on port : ${port}`);
+});
 
-// Start server with dynamic port handling
-const startServer = async () => {
-  try {
-    const server = await tryPort(3000); // Try port 3000 first
-    return server;
-  } catch (error) {
-    if (error.code === 'EADDRINUSE') {
-      console.log('Port 3000 is in use, trying port 5000');
-      const server = await tryPort(5000); // Try fallback port 5000
-      return server;
-    } else {
-      throw error;
-    }
-  }
-};
-
-// Start server
-if (require.main === module) {
-  startServer().catch((error) => {
-    console.error('Failed to start server:', error);
-  });
-}
-
-module.exports = { startServer, app, tryPort };
+module.exports = {app};

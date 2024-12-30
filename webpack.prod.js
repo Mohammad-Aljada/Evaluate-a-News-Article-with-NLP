@@ -4,6 +4,9 @@ import webpack from 'webpack';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { fileURLToPath } from 'url';
+import WorkboxWebpackPlugin from 'workbox-webpack-plugin'; 
+
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -45,6 +48,7 @@ export default {
         ]
     },
     plugins: [
+        
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
             filename: "./index.html",
@@ -54,7 +58,16 @@ export default {
             verbose: true,
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })
+        }),
+         // Add WorkboxPlugin to generate a service worker
+         new WorkboxWebpackPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+            runtimeCaching: [{
+                urlPattern: /\.(?:js|css|html)$/, 
+                handler: 'StaleWhileRevalidate',
+            }]
+        }),
     ],
     resolve: {
         extensions: ['.js', '.scss', '.css'],

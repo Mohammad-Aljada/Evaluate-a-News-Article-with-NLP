@@ -1,13 +1,25 @@
 import { CheckUrl } from './CheckUrl.js';
 export const handleSubmit = async (event) => {
     event.preventDefault();
-
     const url = document.getElementById('url').value;
-    if (!CheckUrl(url)) {
-        console.error('Invalid URL');
-        alert('Please provide a valid URL.');
-        return;
+    const errorMessage = document.getElementById('error-message');
+  
+    // Check if the input is empty
+    if (!url) {
+      errorMessage.textContent = 'URL cannot be empty.';
+      errorMessage.style.display = 'block';
+      return;
     }
+  
+    // Validate the URL using CheckUrl function
+    if (!CheckUrl(url)) {
+      errorMessage.textContent = 'Please enter a valid URL.';
+      errorMessage.style.display = 'block';
+      return;
+    }
+  
+    // Hide error message if URL is valid
+    errorMessage.style.display = 'none';
     try {
         const response = await fetch(
             'http://localhost:3000/sentiment',

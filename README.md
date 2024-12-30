@@ -45,8 +45,7 @@ Webserver - Node Web application framework for routing - Express Build tool - We
    Create a `.env` file in the root directory and add the following API keys:
 
    ```
-   API_KEY=your_api_key
-   Port=5000(for Test Port)
+    API_KEY=your_api_key
    ```
 
    \*\*Note : Test And Server Run To Port 5000 or 3000 in Project if First Value Port in `.env` file
