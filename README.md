@@ -71,11 +71,10 @@ Webserver - Node Web application framework for routing - Express Build tool - We
 
 ## Usage
 
-Once the server is running, open `http://localhost:3000` in your browser to access the Travel Planner app.
+Once the server is running, open `http://localhost:3000` in your browser to access the Nlp.
 
-1. **Add a Trip**: Enter the destination city and select a travel date, then click on the "Save Trip" button.
-2. **View Trip Details**: Your saved trip(s) will be displayed in the "Your Trips" section.
-3. **Remove a Trip**: Click the "Remove Trip" button to delete the trip.
+1. **Add Url Input**: Enter the your url input vaild in input feild
+2. **click on analysis**: click for button analysis for output result and save.
 
 ## APIs Used
 
