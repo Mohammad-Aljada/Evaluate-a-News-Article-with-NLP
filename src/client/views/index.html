@@ -8,20 +8,39 @@
   <body>
     <header><h1>Evaluate a News Article with NLP</h1></header>
     <main>
-      <form id="form">
+      <form
+        id="form"
+        method="post"
+        onsubmit="return Client.handleSubmit(event)"
+      >
         <label for="url">Enter URL:</label>
         <input type="text" id="url" name="url" />
-        <button type="submit">Analyze</button>
+        <button
+          type="submit"
+          id="submit"
+          onclick="return Client.handleSubmit(event)"
+          onsubmit="return Client.handleSubmit(event)"
+        >
+          Analyze
+        </button>
       </form>
       <section id="results">
         <h2>Form Results</h2>
         <p id="polarity">Polarity:</p>
         <p id="agreement">Agreement:</p>
-        <p id="subjectivity">Subjectivity:</p>
         <p id="confidence">Confidence:</p>
+        <p id="subjectivity">Subjectivity:</p>
         <p id="irony">Irony:</p>
       </section>
     </main>
-    <script src="./bundle.js"></script>
+    <script src="./bundle.js">
+      // Check that service workers are supported
+      if ('serviceWorker' in navigator) {
+             // Use the window load event to keep the page load performant
+             window.addEventListener('load', () => {
+                 navigator.serviceWorker.register('/service-worker.js');
+             });
+         }
+    </script>
   </body>
 </html>

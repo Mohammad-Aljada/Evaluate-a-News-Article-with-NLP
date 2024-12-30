@@ -1,18 +1,16 @@
 import supertest from 'supertest';
-import app from '../src/server/index'; // Import the app instance
+import {startServer} from '../src/server/index'; // Import the app instance
 
 describe('Test: Server should be running', () => {
   let server;
-
-  beforeAll((done) => {
-    server = app.listen(3000, () => {
-      console.log('Test server running on http://localhost:3000');
-      done();
-    });
+  beforeAll(async () => {
+    // Start the server dynamically on port 3000 or fallback to port 5000
+    server = await startServer();
   });
 
+  // Close the server after all tests
   afterAll((done) => {
-    server.close(done); // Ensure the server is properly closed
+    server.close(done);  // Ensure the server closes after tests
   });
 
   it('should respond to GET / with status 200 and correct message', async () => {
